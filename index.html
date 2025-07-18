@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로젝트 인포그래픽: 같은 하루, 다른 행복</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="httpshttps://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f8fafc;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 450px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 12px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #118AB2;
+            border: 2px solid white;
+        }
+        .shot-list {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+        
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-black text-[#073B4C] mb-2">프로젝트: 같은 하루, 다른 행복</h1>
+            <p class="text-lg text-slate-600">"행복은 특별한 것이 아니라, 이미 내 일상 안에 있다"</p>
+        </header>
+
+        <main class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+
+            <section class="lg:col-span-4 bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-[#073B4C] mb-4">프로젝트 개요</h2>
+                <p class="text-slate-600 mb-6">최근 심리적 어려움을 겪는 청년들에게 '일상 속 작은 행복'의 가치를 재발견하게 하자는 취지에서 시작되었습니다. 하나의 곡을 바탕으로 외향인(E)과 내향인(I)의 시선을 담은 두 편의 뮤직비디오를 제작하여, 행복의 다양성을 이야기하고 따뜻한 공감과 위로를 전하고자 합니다.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span class="bg-[#06D6A0] text-white text-sm font-semibold px-4 py-2 rounded-full">#일상의행복</span>
+                    <span class="bg-[#118AB2] text-white text-sm font-semibold px-4 py-2 rounded-full">#멀티미디어콘텐츠</span>
+                    <span class="bg-[#FFD166] text-[#073B4C] text-sm font-semibold px-4 py-2 rounded-full">#청년심리문제</span>
+                    <span class="bg-[#FF6B6B] text-white text-sm font-semibold px-4 py-2 rounded-full">#ENFP_vs_ISTJ</span>
+                </div>
+            </section>
+
+            <section class="lg:col-span-4 bg-white rounded-xl shadow-lg p-6 border-l-8 border-[#06D6A0]">
+                <h2 class="text-2xl font-bold text-[#073B4C] mb-4">음원 정보</h2>
+                <div class="items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold text-[#118AB2]">같은 하루, 다른 행복</h3>
+                        <p class="text-lg text-slate-600 font-medium mt-1">아티스트: 정메이</p>
+                        <p class="text-slate-500 mt-4">"이런 날이 좋아 너도 그럴까 싶어 다른 하루를 걷더라도, 지금 이 순간이 우리의 행복이야."</p>
+                         <div class="mt-4">
+                            <p class="font-bold text-sm text-[#073B4C]">발매일: 2025.07.30 정오 (12:00 PM)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="lg:col-span-4 bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-[#073B4C] mb-4">전체 시나리오</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold text-center text-[#FF6B6B] mb-4">E 버전 (ENFP) 시나리오</h3>
+                        <ul class="space-y-3 text-sm">
+                            <li class="p-3 bg-slate-50 rounded-lg"><strong class="text-slate-700">INTRO:</strong> '움직임의 허락'. 신호등이 파란불로 바뀌며 하루의 활기찬 시작을 암시.</li>
+                            <li class="p-3 bg-slate-50 rounded-lg"><strong class="text-slate-700">VERSE 1:</strong> '세상과의 교감'. 창문을 열고 햇살과 바람을 느끼며 외출에 대한 설렘을 느낌.</li>
+                            <li class="p-3 bg-slate-50 rounded-lg"><strong class="text-slate-700">HOOK:</strong> '해방감'. 야외 공간에서 자유롭게 펼쳐지는 안무로 감정을 발산.</li>
+                            <li class="p-3 bg-slate-50 rounded-lg"><strong class="text-slate-700">BRIDGE & OUTRO:</strong> '연결'. I를 떠올리며, 밖으로 나서는 발걸음으로 마무리.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-center text-[#118AB2] mb-4">I 버전 (ISTJ) 시나리오</h3>
+                        <ul class="space-y-3 text-sm">
+                            <li class="p-3 bg-slate-50 rounded-lg"><strong class="text-slate-700">INTRO:</strong> '정지, 루틴의 시작'. 신호등이 빨간불로 바뀌며 차분한 하루의 시작을 암시.</li>
+                            <li class="p-3 bg-slate-50 rounded-lg"><strong class="text-slate-700">VERSE 1:</strong> '익숙함이 주는 안정감'. 침대에서 일어나 정돈된 방을 보며 평온함을 느낌.</li>
+                            <li class="p-3 bg-slate-50 rounded-lg"><strong class="text-slate-700">HOOK:</strong> '내면의 리듬'. 실내 공간에서 절제된 안무로 내면의 감정에 집중.</li>
+                            <li class="p-3 bg-slate-50 rounded-lg"><strong class="text-slate-700">BRIDGE & OUTRO:</strong> '연결'. E를 떠올리며, 자신만의 공간으로 돌아오는 것으로 마무리.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="lg:col-span-4 bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-[#073B4C] mb-4">촬영해야 할 전체 컷</h2>
+                 <p class="text-slate-600 mb-6">뮤직비디오의 완성도를 위해 촬영해야 할 모든 컷 리스트입니다. 실내 컷과 야외 컷이 모두 포함되어 있습니다.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold text-center text-[#118AB2] mb-4">I 버전 (ISTJ) 전체 컷</h3>
+                        <div class="shot-list space-y-3 text-sm pr-2">
+                            <div class="p-3 bg-slate-100 rounded-lg">
+                                <p class="font-bold text-slate-700">[INTRO]</p>
+                                <ul class="list-disc list-inside mt-1 text-slate-600">
+                                    <li>(야외) 신호등 빨간불</li>
+                                    <li>(실내) 집 내부, 침대, 꽃병, 책 등 스케치</li>
+                                </ul>
+                            </div>
+                            <div class="p-3 bg-slate-100 rounded-lg">
+                                <p class="font-bold text-slate-700">[VERSE 1]</p>
+                                <ul class="list-disc list-inside mt-1 text-slate-600">
+                                    <li>BS. 침대에서 뒤척이는 인물을 촬영.</li>
+                                    <li>FS. 침대에 누워 창문 쪽으로 고개를 돌리는 장면.</li>
+                                    <li>LS. 침대에서 바라보는 창문 밖.</li>
+                                    <li>ECU. 음악을 틀고 안경을 쓰고, 머리를 묶는 등 준비하는 모습.</li>
+                                    <li>FS. 침구를 각 잡아서 정리한다.</li>
+                                    <li>MS. 정돈된 방을 보며 만족스러운 듯 조용히 방을 나선다.</li>
+                                </ul>
+                            </div>
+                             <div class="p-3 bg-slate-100 rounded-lg">
+                                <p class="font-bold text-slate-700">[PRE-CHORUS]</p>
+                                <ul class="list-disc list-inside mt-1 text-slate-600">
+                                    <li>ECU. 찬장에서 시리얼컵을 꺼내는 모습.</li>
+                                    <li>ECU. 식탁에 컵, 우유, 시리얼을 올려놓는 모습.</li>
+                                    <li>ECU. 우유를 붓는 장면.</li>
+                                    <li>FS. 눈을 패드에 고정한 채 아침을 먹는 I.</li>
+                                    <li>CU. 패드에서 나오는 영상.</li>
+                                    <li>CU. 줄어드는 시리얼 컵.</li>
+                                </ul>
+                            </div>
+                            <div class="p-3 bg-slate-100 rounded-lg">
+                                <p class="font-bold text-slate-700">[HOOK]</p>
+                                <ul class="list-disc list-inside mt-1 text-slate-600">
+                                    <li>FS/CU. 침실에서 안무하는 I.</li>
+                                    <li>FS/CU. 식탁에서 안무하는 I.</li>
+                                    <li>FS/CU. 거실 의자에서 안무하는 I.</li>
+                                    <li>FS/CU. 책상에서 안무하는 I.</li>
+                                    <li>FS/CU. 헤드셋을 낀 채 안무하는 I.</li>
+                                </ul>
+                            </div>
+                             <div class="p-3 bg-slate-100 rounded-lg">
+                                <p class="font-bold text-slate-700">[VERSE 2]</p>
+                                <ul class="list-disc list-inside mt-1 text-slate-600">
+                                    <li>FS/CU. 화분에 물을 주는 I.</li>
+                                    <li>FS. 집청소를 하는 I.</li>
+                                    <li>CU. 청소도구 등 스케치.</li>
+                                    <li>CU. 청소를 마친 후 뿌듯해하는 I의 얼굴 줌 활용해 촬영.</li>
+                                    <li>MS. 책을 읽는 I.</li>
+                                    <li>ECU. 점점 책상 위에 쌓이는 책들.</li>
+                                    <li>CU. 책장을 넘기는 모습.</li>
+                                    <li>LS. 꽃 향기를 맡는 I.</li>
+                                    <li>CU. I의 손에 들린 꽃다발.</li>
+                                    <li>LS. 꽃병에 꽃을 꽂는 I.</li>
+                                    <li>CU. 꽃병에 꽂히는 꽃 슬로우로 촬영.</li>
+                                    <li>MS. 헤드셋을 착용하는 I.</li>
+                                    <li>CU. 헤드셋.</li>
+                                    <li>LS. 집 안에서 노래를 들으며 신나하는 I.</li>
+                                    <li>ECU. 신난 I의 발걸음.</li>
+                                    <li>FS/CU. 누워서 폰하는 I.</li>
+                                </ul>
+                            </div>
+                             <div class="p-3 bg-slate-100 rounded-lg">
+                                <p class="font-bold text-slate-700">[BRIDGE & OUTRO]</p>
+                                <ul class="list-disc list-inside mt-1 text-slate-600">
+                                    <li>FS. 집 안을 정리하는 I.</li>
+                                    <li>CU. 집안을 정리하다 카메라를 응시하는 I.</li>
+                                    <li>FS. 침대에 앉아 정면을 응시하는 I.</li>
+                                    <li>MS. 왼쪽을 바라보는 I.</li>
+                                    <li>FS. 책장의 책을 꺼내려고 손을 뻗는 장면.</li>
+                                    <li>FS. 침대에서 일어나 왼쪽으로 걸어가는 I.</li>
+                                    <li>FS. 화면 밖으로 나간 상태 지속.</li>
+                                    <li>FS. 왼쪽에서 들어와 침대에 앉으려는 I.</li>
+                                    <li>FS. I가 침대에 앉는 순간 사라짐.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-center text-[#FF6B6B] mb-4">E 버전 (ENFP) 전체 컷</h3>
+                        <div class="shot-list space-y-3 text-sm pr-2">
+                             <div class="p-3 bg-slate-100 rounded-lg">
+                                <p class="font-bold text-slate-700">[INTRO]</p>
+                                <ul class="list-disc list-inside mt-1 text-slate-600">
+                                     <li>(야외) 신호등 초록불</li>
+                                     <li>(야외) 햇살, 나무, 하늘, 바다 스케치</li>
+                                     <li>(실내) 집 외곽, 정문의 모습 촬영</li>
+                                </ul>
+                            </div>
+                             <div class="p-3 bg-slate-100 rounded-lg">
+                                <p class="font-bold text-slate-700">[VERSE 1]</p>
+                                <ul class="list-disc list-inside mt-1 text-slate-600">
+                                     <li>BS. 침대에서 일어나 앉는 인물을 정면에서 따라가며 촬영.</li>
+                                     <li>FS. 침대에 앉아 창문 쪽으로 고개를 돌리는 장면.</li>
+                                     <li>LS. 창문의 전체적인 모습에서 햇살이 비치는 특정한 부분을 줌을 활용해 촬영.</li>
+                                     <li>MS. 이불을 걷는 모습.</li>
+                                     <li>ECU. 걷는 발.</li>
+                                     <li>MS. 햇살이 얼굴에 비치며 밖을 보는 모습.</li>
+                                     <li>LS. 팬을 활용한 전체적인 창 밖의 풍경.</li>
+                                     <li>ECU. 창문 밖으로 내민 손.</li>
+                                     <li>BS. 손을 내밀고 있는 E를 전체적으로 촬영.</li>
+                                </ul>
+                            </div>
+                             <div class="p-3 bg-slate-100 rounded-lg">
+                                <p class="font-bold text-slate-700">[PRE-CHORUS]</p>
+                                <ul class="list-disc list-inside mt-1 text-slate-600">
+                                     <li>ECU. 신발을 신는 모습을 인물의 뒤에서 촬영.</li>
+                                     <li>ECU. 문고리를 찹고 여는 모습.</li>
+                                     <li>FS. 현관문을 열고 밖으로 나가는 모습.</li>
+                                </ul>
+                            </div>
+                            <div class="p-3 bg-slate-100 rounded-lg">
+                                <p class="font-bold text-slate-700">[HOOK]</p>
+                                <ul class="list-disc list-inside mt-1 text-slate-600">
+                                     <li>(야외) 잔디밭, 거리 등에서 자유로운 안무</li>
+                                </ul>
+                            </div>
+                            <div class="p-3 bg-slate-100 rounded-lg">
+                                <p class="font-bold text-slate-700">[VERSE 2]</p>
+                                <ul class="list-disc list-inside mt-1 text-slate-600">
+                                     <li>(야외) 잔디에 앉아 하늘 보기, 바다에 발 담그기</li>
+                                </ul>
+                            </div>
+                             <div class="p-3 bg-slate-100 rounded-lg">
+                                <p class="font-bold text-slate-700">[BRIDGE & OUTRO]</p>
+                                <ul class="list-disc list-inside mt-1 text-slate-600">
+                                     <li>FS. 침대에 앉아 정면을 응시하는 E.</li>
+                                     <li>MS. 오른쪽을 바라보는 E.</li>
+                                     <li>FS. 창 밖을 향해 손을 뻗는 장면.</li>
+                                     <li>FS. 침대에서 일어나 오른쪽으로 걸어가는 E.</li>
+                                     <li>FS. 화면 밖으로 나간 상태 지속.</li>
+                                     <li>FS. 오른쪽에서 들어와 침대에 앉으려는 E.</li>
+                                     <li>FS. E가 침대에 앉는 순간 사라짐.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="lg:col-span-4 bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-[#073B4C] mb-4">7월 20일 (첫 촬영) 상세 컷 리스트</h2>
+                <p class="text-slate-600 mb-6">첫 촬영일에는 두 캐릭터의 모든 실내 장면을 촬영하여 서사의 뼈대를 완성합니다. 아래는 당일 촬영할 모든 컷의 상세 리스트와 타임라인입니다.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="md:col-span-2">
+                        <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-xl font-bold text-center text-[#118AB2] mb-4">I 버전 (ISTJ) 촬영 컷</h3>
+                                <div class="shot-list space-y-3 text-sm pr-2">
+                                    <ul class="list-disc list-inside text-slate-600">
+                                        <li>BS. 침대에서 뒤척이는 인물을 촬영.</li>
+                                        <li>FS. 침대에 누워 창문 쪽으로 고개를 돌리는 장면.</li>
+                                        <li>LS. 침대에서 바라보는 창문 밖.</li>
+                                        <li>ECU. 음악을 틀고 안경을 쓰고, 머리를 묶는 등 준비하는 모습.</li>
+                                        <li>FS/CU. 침실에서 안무하는 I.</li>
+                                        <li>FS. 침구를 각 잡아서 정리한다.</li>
+                                        <li>MS. 정돈된 방을 보며 만족스러운 듯 조용히 방을 나선다.</li>
+                                        <li>ECU. 찬장에서 시리얼컵을 꺼내는 모습.</li>
+                                        <li>ECU. 식탁에 컵, 우유, 시리얼을 올려놓는 모습.</li>
+                                        <li>ECU. 우유를 붓는 장면.</li>
+                                        <li>FS. 눈을 패드에 고정한 채 아침을 먹는 I.</li>
+                                        <li>CU. 패드에서 나오는 영상.</li>
+                                        <li>CU. 줄어드는 시리얼 컵.</li>
+                                        <li>FS/CU. 식탁에서 안무하는 I.</li>
+                                        <li>FS/CU. 화분에 물을 주는 I.</li>
+                                        <li>FS. 집청소를 하는 I.</li>
+                                        <li>CU. 청소도구 등 스케치.</li>
+                                        <li>CU. 청소를 마친 후 뿌듯해하는 I의 얼굴 줌 활용해 촬영.</li>
+                                        <li>FS/CU. 거실 의자에서 안무하는 I.</li>
+                                        <li>MS. 책을 읽는 I.</li>
+                                        <li>ECU. 점점 책상 위에 쌓이는 책들.</li>
+                                        <li>CU. 책장을 넘기는 모습.</li>
+                                        <li>FS/CU. 책상에서 안무하는 I.</li>
+                                        <li>LS. 꽃 향기를 맡는 I.</li>
+                                        <li>CU. I의 손에 들린 꽃다발.</li>
+                                        <li>LS. 꽃병에 꽃을 꽂는 I.</li>
+                                        <li>CU. 꽃병에 꽂히는 꽃 슬로우로 촬영.</li>
+                                        <li>MS. 헤드셋을 착용하는 I.</li>
+                                        <li>CU. 헤드셋.</li>
+                                        <li>LS. 집 안에서 노래를 들으며 신나하는 I.</li>
+                                        <li>ECU. 신난 I의 발걸음.</li>
+                                        <li>FS/CU. 헤드셋을 낀 채 안무하는 I.</li>
+                                        <li>FS/CU. 누워서 폰하는 I.</li>
+                                        <li>FS. 집 안을 정리하는 I.</li>
+                                        <li>CU. 집안을 정리하다 카메라를 응시하는 I.</li>
+                                        <li>FS. 침대에 앉아 정면을 응시하는 I.</li>
+                                        <li>MS. 왼쪽을 바라보는 I.</li>
+                                        <li>FS. 책장의 책을 꺼내려고 손을 뻗는 장면.</li>
+                                        <li>FS. 침대에서 일어나 왼쪽으로 걸어가는 I.</li>
+                                        <li>FS. 화면 밖으로 나간 상태 지속.</li>
+                                        <li>FS. 왼쪽에서 들어와 침대에 앉으려는 I.</li>
+                                        <li>FS. I가 침대에 앉는 순간 사라짐.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-center text-[#FF6B6B] mb-4">E 버전 (ENFP) 촬영 컷</h3>
+                                <div class="shot-list space-y-3 text-sm pr-2">
+                                    <ul class="list-disc list-inside text-slate-600">
+                                        <li>BS. 침대에서 일어나 앉는 인물을 정면에서 따라가며 촬영.</li>
+                                        <li>FS. 침대에 앉아 창문 쪽으로 고개를 돌리는 장면.</li>
+                                        <li>LS. 창문의 전체적인 모습에서 햇살이 비치는 특정한 부분을 줌을 활용해 촬영.</li>
+                                        <li>MS. 이불을 걷는 모습.</li>
+                                        <li>ECU. 걷는 발.</li>
+                                        <li>MS. 햇살이 얼굴에 비치며 밖을 보는 모습.</li>
+                                        <li>LS. 팬을 활용한 전체적인 창 밖의 풍경.</li>
+                                        <li>ECU. 창문 밖으로 내민 손.</li>
+                                        <li>BS. 손을 내밀고 있는 E를 전체적으로 촬영.</li>
+                                        <li>ECU. 신발을 신는 모습을 인물의 뒤에서 촬영.</li>
+                                        <li>ECU. 문고리를 찹고 여는 모습.</li>
+                                        <li>FS. 현관문을 열고 밖으로 나가는 모습.</li>
+                                        <li>FS. 침대에 앉아 정면을 응시하는 E.</li>
+                                        <li>MS. 오른쪽을 바라보는 E.</li>
+                                        <li>FS. 창 밖을 향해 손을 뻗는 장면.</li>
+                                        <li>FS. 침대에서 일어나 오른쪽으로 걸어가는 E.</li>
+                                        <li>FS. 화면 밖으로 나간 상태 지속.</li>
+                                        <li>FS. 오른쪽에서 들어와 침대에 앉으려는 E.</li>
+                                        <li>FS. E가 침대에 앉는 순간 사라짐.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-center text-slate-700 mb-4">타임라인</h3>
+                        <div class="relative pl-8">
+                            <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-slate-300"></div>
+                            <div class="timeline-item relative mb-4">
+                                <p class="font-bold text-sm text-[#118AB2]">08:00-08:30</p>
+                                <h4 class="font-semibold">배우 준비 ('I' 버전)</h4>
+                            </div>
+                            <div class="timeline-item relative mb-4">
+                                <p class="font-bold text-sm text-[#118AB2]">08:30-10:30</p>
+                                <h4 class="font-semibold">'I' 버전 전체 실내 컷 촬영</h4>
+                            </div>
+                            <div class="timeline-item relative mb-4">
+                                <p class="font-bold text-sm text-[#118AB2]">10:30-11:00</p>
+                                <h4 class="font-semibold">환복 및 세팅 전환</h4>
+                            </div>
+                            <div class="timeline-item relative">
+                                <p class="font-bold text-sm text-[#118AB2]">11:00-12:00</p>
+                                <h4 class="font-semibold">'E' 버전 전체 실내 컷 촬영</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+
+        <footer class="text-center mt-12 text-slate-500 text-sm">
+            <p>&copy; 2025 같은 하루, 다른 행복. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        window.onload = function() {
+            const FONT_COLOR = '#073B4C';
+            const GRID_COLOR = 'rgba(7, 59, 76, 0.1)';
+            const PALETTE = {
+                red: '#FF6B6B',
+                yellow: '#FFD166',
+                green: '#06D6A0',
+                blue: '#118AB2',
+                navy: '#073B4C'
+            };
+
+            const tooltipPlugin = {
+                tooltip: {
+                    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                    titleColor: '#073B4C',
+                    bodyColor: '#073B4C',
+                    borderColor: 'rgba(7, 59, 76, 0.2)',
+                    borderWidth: 1,
+                    padding: 10,
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                              return label.join(' ');
+                            }
+                            return label;
+                        }
+                    }
+                }
+            };
+
+            // Concept Radar Chart
+            const ctxRadar = document.getElementById('conceptRadarChart');
+            if(ctxRadar) {
+                new Chart(ctxRadar, {
+                    type: 'radar',
+                    data: {
+                        labels: ['공간 활용', '감정 표현', '움직임', '색감', '행복 방식'],
+                        datasets: [{
+                            label: 'E (ENFP)',
+                            data: [5, 5, 5, 4, 5],
+                            backgroundColor: 'rgba(255, 107, 107, 0.2)',
+                            borderColor: PALETTE.red,
+                            pointBackgroundColor: PALETTE.red,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: PALETTE.red
+                        }, {
+                            label: 'I (ISTJ)',
+                            data: [2, 2, 1, 2, 2],
+                            backgroundColor: 'rgba(17, 138, 178, 0.2)',
+                            borderColor: PALETTE.blue,
+                            pointBackgroundColor: PALETTE.blue,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: PALETTE.blue
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        scales: {
+                            r: {
+                                beginAtZero: true,
+                                max: 5,
+                                grid: { color: GRID_COLOR },
+                                angleLines: { color: GRID_COLOR },
+                                pointLabels: { 
+                                    font: { size: 14, weight: '500' },
+                                    color: FONT_COLOR
+                                }
+                            }
+                        },
+                        plugins: {
+                            ...tooltipPlugin,
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    color: FONT_COLOR,
+                                    font: { size: 14 }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Shot Distribution Doughnut Chart
+            const ctxDoughnut = document.getElementById('shotDistributionDoughnutChart');
+            if(ctxDoughnut) {
+                new Chart(ctxDoughnut, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['I (ISTJ) 컷 수', 'E (ENFP) 컷 수'],
+                        datasets: [{
+                            label: '촬영 컷 분량',
+                            data: [44, 21],
+                            backgroundColor: [
+                                PALETTE.blue,
+                                PALETTE.red
+                            ],
+                            borderColor: '#f8fafc',
+                            borderWidth: 4,
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        responsive: true,
+                        cutout: '60%',
+                        plugins: {
+                            ...tooltipPlugin,
+                            legend: {
+                                position: 'right',
+                                labels: {
+                                    color: FONT_COLOR,
+                                    font: { size: 14 },
+                                    boxWidth: 20,
+                                    padding: 20
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: '7월 20일 촬영 컷 분량',
+                                color: FONT_COLOR,
+                                font: {
+                                    size: 16,
+                                    weight: 'bold'
+                                },
+                                padding: {
+                                    bottom: 10
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        };
+    </script>
+</body>
+</html>
